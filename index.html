@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Neon City — 3D Open World</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+</head>
+<body>
+<main class="wrap">
+  <h1 class="title">NEON CITY</h1>
+  <p class="tagline">A 3D open-world city. Get in a car, run deliveries, earn $5,000 to win.</p>
+  <div class="game-box" id="game-box">
+    <canvas id="game" width="960" height="540" aria-label="Neon City 3D game"></canvas>
+    <canvas id="minimap" width="150" height="150" aria-label="Minimap"></canvas>
+    <div class="hud" id="hud">
+      <span id="hud-money">$0</span>
+      <span id="hud-deliveries">Deliveries: 0/5</span>
+      <span id="hud-hp">HP: 100</span>
+      <span id="hud-speed">0 mph</span>
+    </div>
+    <div id="toast"></div>
+    <div id="prompt"></div>
+    <div id="touch-ui">
+      <div id="stick"><div id="stick-knob"></div></div>
+      <button id="btn-car" type="button">ENTER CAR</button>
+      <button id="btn-jump" type="button">JUMP</button>
+    </div>
+    <div id="overlay">
+      <div class="panel" id="panel">
+        <h2 id="panel-title">NEON CITY</h2>
+        <p id="panel-text">Walk to the pink car and press E to get in.<br>Deliveries pay $1,000 each. Earn $5,000 to win.<br>Crashes hurt — keep your HP above 0.</p>
+        <div class="settings">
+          <label>Look sensitivity <input id="set-sens" type="range" min="0.5" max="3" step="0.1" value="1"> <span id="sens-val">1.0x</span></label>
+          <label>Quality
+            <select id="set-quality">
+              <option value="auto" selected>Auto</option>
+              <option value="high">High</option>
+              <option value="low">Low</option>
+            </select>
+          </label>
+          <label>Volume <input id="set-vol" type="range" min="0" max="1" step="0.1" value="0.8"> <span id="vol-val">80%</span></label>
+        </div>
+        <p class="keys">Move: WASD / arrows &nbsp;•&nbsp; Look: drag mouse &nbsp;•&nbsp; E: enter/exit car &nbsp;•&nbsp; Space: jump / handbrake &nbsp;•&nbsp; Shift: sprint / boost &nbsp;•&nbsp; P: pause &nbsp;•&nbsp; M: mute<br>Touch: left stick to move, drag right side to look.</p>
+        <button id="start-btn" type="button">Play</button>
+        <p class="fine">A browser 3D city, drawn entirely in code. No downloads, no sign-up.</p>
+      </div>
+    </div>
+    <div id="load-error" hidden>3D failed to load — check your connection and reload the page.</div>
+  </div>
+  <p class="foot">Best on desktop. On a phone it auto-lowers shadows and resolution to stay smooth.</p>
+</main>
+<script src="game.js"></script>
+</body>
+</html>
